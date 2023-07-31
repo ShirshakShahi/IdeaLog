@@ -8,3 +8,14 @@
 h1 {
   font-family: "Yantramanav", sans-serif;
 }
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.center {
+  text-align: center;
+}
+
