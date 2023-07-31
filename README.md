@@ -17,3 +17,19 @@ Your support, feedback, and understanding during this exam period are greatly ap
 **Note:** Please pardon any errors or delays in updating the README.md during my exam preparations. I will do my best to maintain the quality and keep you informed. Your patience is valued!
 
 Let's make this project a success! 🚀
+
+
+# Day 1 Progress
+
+Today, I made significant progress with the project. Here's what I accomplished on Day 1:
+
+1. **Installed Ant Design and Explored Components:**
+   I started by installing Ant Design, a powerful UI library that will enhance the aesthetics and functionality of the application. I took the time to explore various components available in Ant Design and familiarized myself with the customization options.
+
+2. **Planned Sign Up and Login Pages:**
+   With Ant Design in place, I am now ready to move on to the next phase. My plan for the upcoming days is to work on the sign-up and login pages of the application using Firebase for user authentication. I will ensure that the authentication process is secure and user-friendly.
+
+3. **Frequent GitHub Updates:**
+   Throughout the development process, I will be actively updating the project on GitHub to keep everyone informed about the progress. I aim to maintain transparency and openness, even during the exam preparation period.
+
+Stay tuned for more updates! 📝🚀
