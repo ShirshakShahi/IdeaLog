@@ -1,8 +1,9 @@
+import React from 'react'
 import { FacebookFilled, InstagramOutlined, GithubOutlined, YoutubeFilled } from '@ant-design/icons';
 import { Button, Card } from 'antd'
-import { Link, useNavigate } from 'react-router-dom';
-import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import NoteDetail from './NoteDetail';
 
 const User = () => {
 
@@ -24,34 +25,39 @@ const User = () => {
     }
 
     return (
-        <div className='user-container'>
-            <Card
-                title="Add new note"
-                style={{
-                    width: 320,
-                }}
-                bordered={true}
-                hoverable
+        <div style={{
+            overflow: "none"
+        }}>
+            <div className='user-container'>
+                <Card
+                    title="Add new note"
+                    style={{
+                        width: 320,
+                    }}
+                    bordered={true}
+                    hoverable
 
-                actions={[
-                    <FacebookFilled key="facebook" style={{ color: "blue" }} />,
-                    <GithubOutlined key="github" style={{ color: "black" }} />,
-                    <InstagramOutlined key="instagram" style={{ color: "purple" }} />,
-                    <YoutubeFilled key="youtube" style={{ color: "red" }} />,
-                ]}
-                extra={<Button onClick={handleAddNoteClick}>Add Note</Button>}
-                cover={
-                    <div style={coverStyle}>
-                        {`USER ${userId}`}
-                    </div>
-                }>
-                <Card.Meta
-                    title={`USER ${userId}`}
-                    description={"@shirshakshahi"}
-                />
-                <p>user bio goes here....</p>
-            </Card>
-        </div>
+                    actions={[
+                        <FacebookFilled key="facebook" style={{ color: "blue" }} />,
+                        <GithubOutlined key="github" style={{ color: "black" }} />,
+                        <InstagramOutlined key="instagram" style={{ color: "purple" }} />,
+                        <YoutubeFilled key="youtube" style={{ color: "red" }} />,
+                    ]}
+                    extra={<Button onClick={handleAddNoteClick}>Add Note</Button>}
+                    cover={
+                        <div style={coverStyle}>
+                            {`USER ${userId}`}
+                        </div>
+                    }>
+                    <Card.Meta
+                        title={`USER ${userId}`}
+                        description={"@shirshakshahi"}
+                    />
+                    <p>user bio goes here....</p>
+                </Card>
+            </div>
+            <NoteDetail />
+        </div >
     )
 }
 
