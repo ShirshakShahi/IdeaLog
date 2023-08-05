@@ -1,16 +1,19 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { auth } from "../../firebaseConfig";
 
-export const signUp = createAsyncThunk("signUp", async (_, rejectWithValue) => {
-
+export const signUp = createAsyncThunk("signUp", async (datas, rejectWithValue) => {
+    const { email, password } = datas;
     try {
-        //todo : set Logic for signUp
+        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+        console.log("in redux store ====>", userCredential);
+        return userCredential;
     } catch (error) {
-
+        console.log("error ", error);
+        return rejectWithValue({ error: "Signup failed" })
     }
 })
 
-export const logIn = createAsyncThunk("signUp", async (_, rejectWithValue) => {
+export const logIn = createAsyncThunk("logIn", async (_, rejectWithValue) => {
 
     try {
         //todo : set Logic for logIn
@@ -20,7 +23,7 @@ export const logIn = createAsyncThunk("signUp", async (_, rejectWithValue) => {
     }
 })
 
-export const logOut = createAsyncThunk("signUp", async (_, rejectWithValue) => {
+export const logOut = createAsyncThunk("logOut", async (_, rejectWithValue) => {
 
     try {
         //todo : set Logic for logOut
@@ -33,7 +36,9 @@ const authSlice = createSlice({
     name: "auth",
     initialState: { user: [] },
     reducers: {},
-    extraReducers: {}
+    extraReducers: (builder) => {
+
+    }
 })
 
 export default authSlice.reducer;

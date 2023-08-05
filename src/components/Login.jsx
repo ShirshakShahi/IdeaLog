@@ -1,6 +1,8 @@
 import { Form, Input, Card, Button, Modal } from "antd";
 import NavBar from "../components/NavBar";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { signUp } from "../store/auth";
 
 const Login = () => {
   const [isSignup, setIsSignup] = useState(false);
@@ -8,12 +10,25 @@ const Login = () => {
     setIsSignup(true);
   };
 
+  const dispatch = useDispatch();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const signUpHandler = values => {
+    console.log(values)
+    dispatch(signUp({
+      email, password
+    }));
+  }
+
   return (
     <>
       <NavBar />
       <div className="container">
         <Modal title="Singup" open={isSignup} footer={null} keyboard>
-          <Form style={{ textAlign: "center" }}>
+          <Form style={{ textAlign: "center" }} onFinish={signUpHandler}>
             <div
               style={{
                 display: "flex",
@@ -21,18 +36,18 @@ const Login = () => {
                 width: "",
               }}
             >
-              <Form.Item style={{ width: "230px" }}>
-                <Input placeholder="First Name" />
+              <Form.Item style={{ width: "230px" }} name="fname">
+                <Input placeholder="First Name" name="fname" onChange={(e) => (setFirstName(e.target.value))} />
               </Form.Item>
-              <Form.Item style={{ width: "230px" }}>
-                <Input placeholder="Second Name" />
+              <Form.Item style={{ width: "230px" }} name="sname">
+                <Input placeholder="Second Name" name="sname" onChange={(e) => (setLastName(e.target.value))} />
               </Form.Item>
             </div>
-            <Form.Item name="email">
-              <Input id="email" type="text" placeholder="Email" />
+            <Form.Item name="email" >
+              <Input id="email" type="text" placeholder="Email" name="email" onChange={(e) => (setEmail(e.target.value))} />
             </Form.Item>
-            <Form.Item name="password">
-              <Input.Password placeholder="New Password" />
+            <Form.Item name="password" >
+              <Input.Password placeholder="New Password" name="password" onChange={(e) => (setPassword(e.target.value))} />
             </Form.Item>
 
             <Button
