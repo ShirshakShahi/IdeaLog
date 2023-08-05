@@ -5,6 +5,7 @@ import AddNote from "./components/NotePage/AddNote";
 import User from "./components/User";
 
 const App = () => {
+
   return (<>
     <Routes>
       <Route path="/" element={<h1>welcome page</h1>} />
